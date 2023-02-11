@@ -36,6 +36,7 @@ const resolvers = {
   },
 
   Mutation: {
+    // to create a new user
     createUser: (parent, args) => {
       const newUser = args.input;
       const lastId = UserList[UserList.length - 1].id;
@@ -44,9 +45,18 @@ const resolvers = {
       return newUser;
     },
 
-    // createUser: (parent, args) => {
-    //   const { id, newUsername } = args.input;
-    // },
+    // update username of the user
+    updateUsernameInput: (parent, args) => {
+      const { id, newUsername } = args.input;
+      let updatedUser;
+      UserList.forEach((user) => {
+        if (user.id === Number(id)) {
+          user.username = newUsername;
+          updatedUser = user;
+        }
+      });
+      return updatedUser;
+    },
   },
 };
 

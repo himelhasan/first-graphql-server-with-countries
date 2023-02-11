@@ -39,7 +39,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(input: CreateUserInput!): User
-    updateUsernameInput(input: updateUsernameInput!): User!
+    updateUsernameInput(input: updateUsernameInput!): User
   }
 
   enum Nationality {
